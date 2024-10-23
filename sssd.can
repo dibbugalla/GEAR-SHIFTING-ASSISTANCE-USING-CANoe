@@ -1,0 +1,26 @@
+/*@!Encoding:1252*/
+includes
+{
+ 
+  
+}
+
+variables
+{
+  message 0xA1 A;
+  
+  
+}
+on sysvar instrument_cluster::track_bar
+{
+  A.rtr=0;
+  A.dlc=1;
+  A.byte(0)=@instrument_cluster::track_bar;
+  output(A);
+}
+
+
+on preStop
+{
+  @instrument_cluster::track_bar=0;
+}
